@@ -1,22 +1,25 @@
-<footer class="footer">
-    <div class="social-media">
-        <p>وسائل التواصل الاجتماعي</p>
-        <a href="https://www.facebook.com/answer.tech1/"><img src="img/fi.png" alt="Facebook" /></a>
-        <a href="https://twitter.com/answer_tech1?s=09"><img src="img/ti.png" alt="Twitter" /></a>
+<!-- Footer -->
+<footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+        <span class="mb-3 mb-md-0 text-light">حلول تكنولوجيا &copy;2024</span>
     </div>
-    <div class="footer-page">
-        <p>الصفحات</p>
-        <div class="links">
-            <a href="index.html"> الصفحة الرئيسية </a>
-            <a href="pages/About.html"> حول الموقع </a>
-            <a href="pages/Privacy_policy.html"> سياسة الخصوصية </a>
-            <a href="pages/Contact_Us.html"> اتصل بنا </a>
-            <a href="pages/Media.html"> الوسائط </a>
-        </div>
-    </div>
-    <span class="copyright">جميع الحقوق محفوظة &copy;</span>
-    <a class="copy" href=" index.html"><span> لدى حلول تكنولوجيا</span></a>
+    <ul class="nav col-md-8 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+            <a class="text-light" href="https://www.facebook.com/answer.tech1/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                </svg></a>
+        </li>
+        <li class="ms-3">
+            <a class="text-light" href="https://twitter.com/answer_tech1" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                </svg></a>
+        </li>
+    </ul>
 </footer>
+</div>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<!-- My Script -->
 <script src="js/main.js"></script>
 </body>
 

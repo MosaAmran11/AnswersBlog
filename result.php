@@ -32,7 +32,8 @@ require_once('config.php')
                 <!-- Retreving data from database -->
                 <?php
                 require_once('config.php');
-                $sql = "SELECT * FROM posts ORDER BY post_id DESC";
+                $find = $_GET['find'];
+                $sql = "SELECT * FROM posts WHERE post_title LIKE '%$find%' ORDER BY post_date DESC";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     die("Error in SQL query");

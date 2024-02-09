@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>حلول تكنولوجيا</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Font Icon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="description" contact="تهتم بحل مشاكل الأندرويد والكمبيوتر" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div class="containar">
+      <header
+        id="header"
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-1"
+      >
+        <div class="fs-4">
+          <a href="index.php">
+            <img class="img-head" src="img/la.png" alt="حلول تكنولوجيا"
+          /></a>
+        </div>
+        <div class="col-md-3 text-center">
+          <ul class="nav col-md-12 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+              <a
+                class="text-light"
+                href="https://www.facebook.com/answer.tech1/"
+                target="_blank"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-facebook"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a
+                class="text-light"
+                href="https://twitter.com/answer_tech1"
+                target="_blank"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-twitter"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                  /></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <!--  Main section -->
+      <div class="row">
+        <div class="containar">
+          <div style="margin-top: 20px; margin-bottom: 20px" class="row">
+            <section class="col-md-4">
+              <div class="row">
+                <!-- List Group -->
+                <div class="col-md-12">
+                  <ul class="list-group">
+                    <a style="text-decoration: none" href="">
+                      <li class="list-group-item active" aria-current="true">
+                        أخبار تقنية
+                      </li>
+                    </a>
+
+                    <a style="text-decoration: none" href="">
+                      <li class="list-group-item">مشاكل وحلول</li>
+                    </a>
+
+                    <a style="text-decoration: none" href="">
+                      <li class="list-group-item">تطبيقات</li>
+                    </a>
+
+                    <a style="text-decoration: none" href="">
+                      <li class="list-group-item">أنظمة تشغيل</li>
+                    </a>
+
+                    <a style="text-decoration: none" href="">
+                      <li class="list-group-item">ويب</li>
+                    </a>
+                  </ul>
+                </div>
+              </div>
+              <div style="margin-top: 20px" class="row">
+                <!-- Search Bar -->
+                <div class="col-md-12">
+                  <form action="result.php" method="GET">
+                    <input
+                      style="margin-bottom: 10px"
+                      name="find"
+                      placeholder="اكتب هنا للبحث..."
+                      class="form-control"
+                      type="text"
+                    />
+                    <input
+                      type="submit"
+                      name="sub_find"
+                      class="form-control btn btn-success"
+                      value="بحث"
+                    />
+                  </form>
+                </div>
+              </div>
+              <div style="margin-top: 20px" class="row"></div>
+            </section>
+            <main class="col-8">
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                  >
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <!-- Post Type -->
+                      <strong class="d-inline-block mb-2 text-primary"
+                        >Applications</strong
+                      >
+                      <!-- Post Thumbnail -->
+                      <div class="col-auto d-none d-lg-block">
+                        <div
+                          class="post-thumbnail"
+                          style="height: auto; margin-bottom: 5px"
+                        >
+                          <img
+                            src="https://lh3.googleusercontent.com/-iLMS1dk0zDs/XhyTLUqTdDI/AAAAAAAAFMU/5hrkz4y5d04aH20cPHWZSITspA4JUTE0ACLcBGAsYHQ/s1600/1578930976407632-0.png"
+                            alt=""
+                            style="width: 100%; border-radius: 8px"
+                          />
+                        </div>
+                      </div>
+                      <!-- Post Tilte -->
+                      <h3 class="mb-0">Title</h3>
+                      <!-- Post Date -->
+                      <div class="mb-1 text-muted">2024/02/09</div>
+                      <!-- Post Text -->
+                      <p class="card-text mb-auto">Content of Post</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer
+        id="footer"
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-3 mb-md-0 text-light">حلول تكنولوجيا &copy;2024</span>
+        </div>
+        <ul class="nav col-md-8 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a
+              class="text-light"
+              href="https://www.facebook.com/answer.tech1/"
+              target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-facebook"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+                /></svg
+            ></a>
+          </li>
+          <li class="ms-3">
+            <a
+              class="text-light"
+              href="https://twitter.com/answer_tech1"
+              target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-twitter"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                /></svg
+            ></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <!-- My Script -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

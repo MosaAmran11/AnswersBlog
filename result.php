@@ -33,7 +33,7 @@ require_once('config.php')
                 <?php
                 require_once('config.php');
                 $find = $_GET['find'];
-                $sql = "SELECT * FROM posts WHERE post_title LIKE '%$find%' ORDER BY post_date DESC";
+                $sql = "SELECT * FROM posts WHERE post_type LIKE '%$find%' OR post_title LIKE '%$find%' ORDER BY post_date DESC";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     die("Error in SQL query");
@@ -41,9 +41,9 @@ require_once('config.php')
                 while ($row = mysqli_fetch_assoc($result)) {
                     $title = $row['post_title'];
                     $date = $row['post_date'];
-                    $text = $row['post_text'];
+                    $text = substr($row['post_text'], 0, 250) . "...";
                     $type = $row['post_type'];
-                    // $img = $row['post_img'];
+                    $img = $row['post_img'];
                 ?>
                     <div class="row mb-2">
                         <div class="col-md-12">
@@ -59,14 +59,8 @@ require_once('config.php')
                                     <p class="card-text mb-auto"><?php echo $text ?></p>
                                     <a href="#" class="stretched-link">قراءة المزيد</a>
                                 </div>
-                                <div class="col-auto d-none d-lg-block">
-                                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#55595c" />
-                                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                            Thumbnail
-                                        </text>
-                                    </svg>
+                                <div class='col-auto d-none d-lg-block'>
+                                    <img src='./dashboard/news_uplode/<?php echo $img ?>' alt='' srcset='' width='270' height='100%'>
                                 </div>
                             </div>
                         </div>

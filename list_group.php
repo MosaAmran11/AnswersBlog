@@ -27,14 +27,14 @@
     <ul class="list-group">
         <?php
         require_once('config.php');
-        $sql = "SELECT post_type FROM posts";
+        $sql = "SELECT post_type, post_id FROM posts";
         $result = mysqli_query($conn, $sql);
         $count = 0;
         while ($data = mysqli_fetch_assoc($result)) {
             $type = $data['post_type'];
         ?>
             <a style="text-decoration: none;" href="result.php?find=<?php echo $type; ?>">
-                <li class="list-group-item <?php if ($count == 0) echo "active"; ?>" aria-current="true">
+                <li class="list-group-item" aria-current="true">
                     <?php echo $type; ?>
                 </li>
             </a>

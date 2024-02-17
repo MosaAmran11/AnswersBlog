@@ -54,7 +54,7 @@ require_once('config.php')
                                 <!-- Post Thumbnail -->
                                 <div class="col-auto d-none d-lg-block">
                                     <div class="post-thumbnail" style="height: auto; margin-bottom: 5px">
-                                        <img src="./dashboard/news_uplode/<?php echo $img ?>" alt="" style="width: 100%; border-radius: 8px" />
+                                        <img src="./dashboard/post_uplode/<?php echo $img ?>" alt="" style="width: 100%; border-radius: 8px" />
                                     </div>
                                 </div>
                                 <!-- Post Tilte -->

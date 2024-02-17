@@ -60,7 +60,7 @@ require_once('config.php')
                                     <a class='stretched-link' href="view_post.php?post_id=<?php echo $_GET['post_id']; ?>" class="stretched-link">قراءة المزيد</a>
                                 </div>
                                 <div class='col-auto d-none d-lg-block'>
-                                    <img src='./dashboard/news_uplode/<?php echo $img ?>' alt='' srcset='' width='270' height='100%'>
+                                    <img src='./dashboard/post_uplode/<?php echo $img ?>' alt='' srcset='' width='270' height='100%'>
                                 </div>
                             </div>
                         </div>

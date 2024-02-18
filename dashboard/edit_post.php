@@ -9,7 +9,7 @@ require_once('header.php');
     if (isset($_GET['val'])) {
         $post_id = $_GET['val'];
         require_once('../config.php');
-        $sql = "select * from post where post_id = $post_id";
+        $sql = "select * from posts where post_id = $post_id";
         $exe = mysqli_query($conn, $sql);
         if (!$exe) {
             die("Selected Erorr" . mysqli_error($conn));
@@ -105,7 +105,7 @@ require_once('header.php');
                     <td></td>
                     <td>
                         <input class="btn btn-success" type="submit" value="Update" name="edit_post">
-                        <a href="./post.php" class="btn btn-danger">Cancel</a>
+                        <a href="./posts.php" class="btn btn-danger">Cancel</a>
                     </td>
                 </tr>
             </table>

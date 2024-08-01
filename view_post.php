@@ -32,11 +32,16 @@ require_once('config.php')
                 <!-- Retreving data from database -->
                 <?php
                 require_once('config.php');
-                $post_id = $_GET['post_id'];
+                $post_id = htmlspecialchars($_GET['post_id'], ENT_QUOTES, 'utf-8');
                 $sql = "SELECT * FROM posts WHERE post_id = '{$post_id}'";
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
                     die("Error in SQL query");
+                }
+                if (mysqli_num_rows($result) == 0) {
+                    echo "<h1> 404 </h1>";
+                    echo "Page Not Found!";
+                    die();
                 }
                 $row = mysqli_fetch_assoc($result);
                 $title = $row['post_title'];
@@ -54,10 +59,10 @@ require_once('config.php')
                                 <!-- Post Thumbnail -->
                                 <div class="col-auto d-none d-lg-block">
                                     <div class="post-thumbnail" style="height: auto; margin-bottom: 5px">
-                                        <img src="./dashboard/post_uplode/<?php echo $img ?>" alt="" style="width: 100%; border-radius: 8px" />
+                                        <img src="./dashboard/post_upload/<?php echo $img ?>" alt="" style="width: 100%; border-radius: 8px" />
                                     </div>
                                 </div>
-                                <!-- Post Tilte -->
+                                <!-- Post Title -->
                                 <h3 class="mb-0"><?php echo $title ?></h3>
                                 <!-- Post Date -->
                                 <div class="mb-1 text-muted"><?php echo $date ?></div>

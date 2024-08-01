@@ -104,7 +104,7 @@ ob_start("ob_gzhandler");
           $_SESSION['adminId'] = $row['user_id'];
           $_SESSION['adminName'] = $row['user_name'];
           $found = true;
-          header('location:../index.php');
+          header('location:./index.php');
         }
       }
       if (!$found) {

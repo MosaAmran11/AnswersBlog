@@ -5,5 +5,5 @@ $exe = mysqli_query($conn, "DELETE FROM posts WHERE post_id = $n");
 if (!$exe) {
     echo "error" . mysqli_error($conn);
 }
-header("location:posts.php");
+header("location:index.php");
 mysqli_close($conn);

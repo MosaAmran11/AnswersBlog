@@ -7,69 +7,66 @@ require_once('header.php');
     <hr>
     <?php
     if (isset($_GET['eu'])) {
-    $id = $_GET['eu'];
-    require_once('../config.php');
-    $sql = "select * from user where user_id = '$id'";
-    $exe = mysqli_query($conn,$sql);
-    if (!$exe) {
-        echo("Selected Erorr" . mysqli_close($conn));
-    }
-    $row = mysqli_fetch_assoc($exe);
+        $id = $_GET['eu'];
+        require_once('../config.php');
+        $sql = "select * from user where user_id = '$id'";
+        $exe = mysqli_query($conn, $sql);
+        if (!$exe) {
+            echo ("Selected Erorr" . mysqli_close($conn));
+        }
+        $row = mysqli_fetch_assoc($exe);
         $id = $row['user_id'];
         $name = $row['user_name'];
-        $pass = $row['user_password'];
+        $pass = "";
         $email = $row['user_email'];
-        $phone = $row['phone'];
+        $phone = $row['user_phone'];
         $gender = $row['user_gender'];
         $country = $row['user_country'];
         $per = $row['user_type'];
         $img = $row['user_img'];
-        if(isset($_POST['save_edit'])){
-                if (isset($_FILES['user_uplode']) && !empty($_FILES['user_uplode']['tmp_name'])) {
-                    $folder ="../Uplode/";
-                    $img = $_FILES['user_uplode']['name'];
-                    $tmp = $_FILES['user_uplode']['tmp_name'];
-                    $id = $_POST['myid'];
-                    $name = $_POST['user_name'];
-                    $password = md5($_POST['user_password2']);
-                    $email = $_POST['user_email'];
-                    $phone = $_POST['user_tel'];
-                    $gender = $_POST['user_gender'];
-                    $country = $_POST['user_country'];
-                    $type = $_POST['user_per'];
-                    $sql = "update user set user_name = '$name', user_password = '$password', user_email = '$email',
-                    phone = '$phone', user_gender = '$gender', user_country = '$country', user_type = '$type' , 
+        if (isset($_POST['save_edit'])) {
+            if (isset($_FILES['user_upload']) && !empty($_FILES['user_upload']['tmp_name'])) {
+                $folder = "../Upload/";
+                $img = $_FILES['user_upload']['name'];
+                $tmp = $_FILES['user_upload']['tmp_name'];
+                $id = $_POST['myid'];
+                $name = $_POST['user_name'];
+                $password = md5($_POST['user_password2']);
+                $email = $_POST['user_email'];
+                $phone = $_POST['user_tel'];
+                $gender = $_POST['user_gender'];
+                $country = $_POST['user_country'];
+                $type = $_POST['user_per'];
+                $sql = "update user set user_name = '$name', user_password = '$password', user_email = '$email',
+                    user_phone = '$phone', user_gender = '$gender', user_country = '$country', user_type = '$type' , 
                     user_img = '$img'  WHERE user_id = $id";
-                    $exe = mysqli_query($conn,$sql);
-                    if(!$exe){
-                        echo "Update Error" . mysqli_error($conn);
-                    }
-                    else{
-                        move_uploaded_file($tmp,$folder.$img);
-                        header('location:users.php');
-                    }     
+                $exe = mysqli_query($conn, $sql);
+                if (!$exe) {
+                    echo "Update Error" . mysqli_error($conn);
+                } else {
+                    move_uploaded_file($tmp, $folder . $img);
+                    header('location:users.php');
                 }
-                else {
-                    $id = $_POST['myid'];
-                    $name = $_POST['user_name'];
-                    $password = md5($_POST['user_password2']);
-                    $email = $_POST['user_email'];
-                    $phone = $_POST['user_tel'];
-                    $gender = $_POST['user_gender'];
-                    $country = $_POST['user_country'];
-                    $type = $_POST['user_per'];
-                    $sql = "update user set user_name = '$name', user_password = '$password', user_email = '$email',
-                    phone = '$phone', user_gender = '$gender', user_country = '$country', user_type = '$type' , 
+            } else {
+                $id = $_POST['myid'];
+                $name = $_POST['user_name'];
+                $password = md5($_POST['user_password2']);
+                $email = $_POST['user_email'];
+                $phone = $_POST['user_tel'];
+                $gender = $_POST['user_gender'];
+                $country = $_POST['user_country'];
+                $type = $_POST['user_per'];
+                $sql = "update user set user_name = '$name', user_password = '$password', user_email = '$email',
+                    user_phone = '$phone', user_gender = '$gender', user_country = '$country', user_type = '$type' , 
                     user_img = '$img'  WHERE user_id = $id";
-                    $exe = mysqli_query($conn,$sql);
-                    if(!$exe){
-                        echo "Update Error" . mysqli_error($conn);
-                    }
-                    else {
-                        header('location:users.php');
-                    }
-                }      
+                $exe = mysqli_query($conn, $sql);
+                if (!$exe) {
+                    echo "Update Error" . mysqli_error($conn);
+                } else {
+                    header('location:users.php');
+                }
             }
+        }
     }
     mysqli_close($conn);
     ?>
@@ -78,7 +75,7 @@ require_once('header.php');
             <table class="table">
                 <tr>
                     <td><label class="form-label">Name:</label></td>
-                    <td><input class="form-control" id="name" type="text" value="<?php echo $name; ?>" name="user_name" placeholder="FristName MiddlelName LastName"></td>
+                    <td><input class="form-control" id="name" type="text" value="<?php echo $name; ?>" name="user_name" placeholder="FristName and LastName" autofocus></td>
                 </tr>
                 <tr>
                     <td><label>Password:</label></td>
@@ -119,18 +116,19 @@ require_once('header.php');
                     <td><label>Permission:</label></td>
                     <td><select name="user_per" id="per">
                             <option value="<?php echo $per; ?>"><?php echo $per; ?></option>
-                            <option value="Admin">Admin</option>
-                            <option value="User">User</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
                         </select></td>
                 </tr>
                 <tr>
-                    <td>Uplode Image:</td>
-                    <td><img class="w-30 h-30 my-2" src="../Uplode/<?php echo $img; ?>"  height="230px">
-                        <label id="format"><input class="form-control" type="file" name="user_uplode">
-                            The allowed formats here are (jpg,png,svg,jpeg)</label></td>
+                    <td>upload Image:</td>
+                    <td><img class="w-30 h-30 my-2" src="../upload/<?php echo $img; ?>" height="230px">
+                        <label id="format"><input class="form-control" type="file" name="user_upload">
+                            Allowed formats: jpg, png, svg, jpeg</label>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="text" hidden name="myid" value = "<?php echo $id; ?>"></td>
+                    <td><input type="text" hidden name="myid" value="<?php echo $id; ?>"></td>
                     <td>
                         <input class="btn btn-success" type="submit" value="Update User" name="save_edit">
                         <a href="./users.php" class="btn btn-danger">Cancel</a>

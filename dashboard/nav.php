@@ -10,7 +10,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="posts.php">
+                        <a class="nav-link" href="index.php">
                             <span data-feather="file" class="align-text-bottom"></span>
                             Posts
                         </a>

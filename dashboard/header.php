@@ -1,5 +1,5 @@
 <?php
-require_once('validate_sess.php');
+require_once 'validate_sess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,7 @@ require_once('validate_sess.php');
     <meta name="generator" content="Hugo 0.101.0">
     <title>Dashboard</title>
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="script" href="./js/dashboard.js">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -73,21 +74,23 @@ require_once('validate_sess.php');
 <body onload="senon();">
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <?php
-            if($_SESSION['adminName'])
-            {
-                $name = $_SESSION['adminName'];
-                echo "<span class='navbar-brand col-md-3 col-lg-3 me-0 px-2 fs-6'>Welcome: $name</span>";
-            }
-        ?>        
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-            aria-label="Toggle navigation">
+        if ($_SESSION['userName']) {
+            $name = $_SESSION['userName'];
+            echo "<span class='navbar-brand col-md-3 col-lg-3 me-0 px-2 fs-6'>Welcome: $name</span>";
+        }
+        ?>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h1 class="form-control text-center form-control-dark w-100 rounded-0 border-0">News Website</h1>
+        <h1 class="form-control text-center form-control-dark w-100 rounded-0 border-0">Answers Blog</h1>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="./sign_out.php">Sign out</a>
+                <a class="nav-link px-3" href="../index.php">Go to Blogger</a>
+            </div>
+        </div>
+        <div class="navbar-nav" id="sign_out">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="../sign_out.php">Sign out</a>
             </div>
         </div>
     </header>

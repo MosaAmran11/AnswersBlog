@@ -1,3 +1,5 @@
+<?php session_start()
+?>
 <!DOCTYPE html>
 <html>
 
@@ -24,8 +26,17 @@
                     <img class="img-head" src="img/la.png" alt="حلول تكنولوجيا" /></a>
             </div>
             <div class="col-md-3 text-center">
-                <span class="fs-6"><?php if (isset($_POST['user_name'])) echo "مرحباً: " . $_POST['user_name']; ?></span>
-                <a href="sign_up.php" type="button" class="btn btn-outline-light me-2">إنشاء حساب</a>
-                <a href="sign_in.php" type="button" class="btn btn-outline-light me-2">تسجيل الدخول</a>
+                <span class="fs-6"><?php ?></span>
+                <?php
+                if (!isset($_SESSION['userId'])) {
+                    echo "<a href='sign_up.php' type='button' class='btn btn-outline-light me-2'>إنشاء حساب</a>";
+                    echo "<a href='sign_in.php' type='button' class='btn btn-outline-light me-2'>تسجيل الدخول</a>";
+                } elseif (isset($_SESSION['userName'])) {
+                    echo "مرحباً: " . $_SESSION['userName'];
+                    echo "<a href='./sign_out.php' type='button' class='btn btn-outline-light me-2'>تسجيل خروج</a>";
+                }
+                if (@$_SESSION['userType'] == 'admin')
+                    echo "<a href='./dashboard/index.php' type='button' class='btn btn-outline-light me-2'>لوحة التحكم</a>";
+                ?>
             </div>
         </header>

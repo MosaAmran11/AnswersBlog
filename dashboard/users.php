@@ -45,7 +45,7 @@ require_once('nav.php');
                     <td>$email</td>
                     <td>$phone</td>
                     <td>$per</td>
-                    <td><img src='../Uplode/$img' alt='Profile' height='70px' width='90px'></td>
+                    <td><img src='../upload/$img' alt='Profile' height='70px' width='90px'></td>
                     <td><a href='./edit_user.php?eu=$id' class='btn btn-info'>Edit</a></td>
                     <td><a href='./del_user.php?du=$id' class='btn btn-danger'>Del</a></td>
                     </tr>

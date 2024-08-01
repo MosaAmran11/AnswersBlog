@@ -16,10 +16,10 @@ require_once('header.php');
         }
         $row = mysqli_fetch_assoc($exe);
         if (isset($_POST['edit_post'])) {
-            if (isset($_FILES['post_uplode']) && !empty($_FILES['post_uplode']['tmp_name'])) {
-                $folder = "./post_uplode/";
-                $img = $_FILES['post_uplode']['name'];
-                $tmp = $_FILES['post_uplode']['tmp_name'];
+            if (isset($_FILES['post_upload']) && !empty($_FILES['post_upload']['tmp_name'])) {
+                $folder = "./post_upload/";
+                $img = $_FILES['post_upload']['name'];
+                $tmp = $_FILES['post_upload']['tmp_name'];
                 $title = $_POST['post_title'];
                 $date = $_POST['post_date'];
                 $text = $_POST['post_text'];
@@ -46,7 +46,7 @@ require_once('header.php');
                 if (!$exe) {
                     echo "Update Error" . mysqli_error($conn);
                 } else {
-                    header('location:posts.php');
+                    header('location:index.php');
                 }
             }
         }
@@ -58,7 +58,7 @@ require_once('header.php');
             <table class="table">
                 <tr>
                     <td><label class="form-label">Post Title:</label></td>
-                    <td><input class="form-control" id="title" type="text" name="post_title" value="<?php echo $row['post_title']; ?>"></td>
+                    <td><input class="form-control" id="title" type="text" name="post_title" value="<?php echo $row['post_title']; ?>" autofocus></td>
                 </tr>
                 <tr>
                     <td><label>Post Date:</label></td>
@@ -95,9 +95,9 @@ require_once('header.php');
                     </td>
                 </tr>
                 <tr>
-                    <td>Uplode Post Image:</td>
-                    <td><img class="w-50 h-50 my-2" src="./post_uplode/<?php echo $row['post_img']; ?>" height="230px">
-                        <label id="format"><input class="form-control" type="file" name="post_uplode">
+                    <td>upload Post Image:</td>
+                    <td><img class="w-50 h-50 my-2" src="./post_upload/<?php echo $row['post_img']; ?>" height="230px">
+                        <label id="format"><input class="form-control" type="file" name="post_upload">
                             The allowed formats here are (jpg,png,svg)</label>
                     </td>
                 </tr>
@@ -105,7 +105,7 @@ require_once('header.php');
                     <td></td>
                     <td>
                         <input class="btn btn-success" type="submit" value="Update" name="edit_post">
-                        <a href="./posts.php" class="btn btn-danger">Cancel</a>
+                        <a href="./index.php" class="btn btn-danger">Cancel</a>
                     </td>
                 </tr>
             </table>

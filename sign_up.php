@@ -1,8 +1,6 @@
 <?php
 require_once('header.php');
 require_once('nav.php');
-?>
-<?php
 $E_user_name = "";
 $E_password1 = "";
 $E_password2 = "";
@@ -20,7 +18,7 @@ if (isset($_POST['ok'])) {
     $phone = $_POST['user_tel'];
     $gender = $_POST['user_gender'];
     $country = $_POST['user_country'];
-    $type = "User";
+    $type = "user";
     // password Strong
     $uppercase = preg_match('@[A-Z]@', $password1);
     $lowercase = preg_match('@[a-z]@', $password1);
@@ -83,6 +81,7 @@ if (isset($_POST['ok'])) {
     }
 }
 ?>
+
 <!-- main  -->
 <div style="margin-top:20px;margin-bottom:20px;" class="row">
     <div class="col-md-2"></div>
@@ -92,7 +91,7 @@ if (isset($_POST['ok'])) {
             <table class="table">
                 <tr>
                     <td><label class="form-label">الاسم:</label></td>
-                    <td><input class="form-control" id="name" type="text" name="user_name" placeholder="الاسم الأول والأوسط واللقب"></td>
+                    <td><input class="form-control" id="name" type="text" name="user_name" placeholder="الاسم الأول واللقب" autofocus></td>
                     <td>
                         <pre> * </pre>
                     </td>
@@ -102,7 +101,7 @@ if (isset($_POST['ok'])) {
                 </tr>
                 <tr>
                     <td><label>كلمة المرور:</label></td>
-                    <td><input class="form-control" id="pass" type="password" name="user_password1" placeholder="يجب أن لا تقل كلمة المرور عن 4 حروف وتتكون من رموز وأحرف كبيرة وصغيرة"></td>
+                    <td><input class="form-control" id="pass" type="password" name="user_password1" placeholder="يجب أن لا تقل كلمة المرور عن 8 حروف وتتكون من رموز وأحرف كبيرة وصغيرة"></td>
                     <td>
                         <pre> * </pre>
                     </td>

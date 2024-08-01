@@ -1,7 +1,5 @@
 <?php
 session_start();
-if($_SESSION['adminName'] == null && $_SESSION['adminId'] == null)
-{
-	header('location:sign_in.php');
+if ($_SESSION['userName'] == null && $_SESSION['userId'] == null) {
+	header('location:../sign_in.php');
 }
-?>

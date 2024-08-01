@@ -15,11 +15,11 @@ require_once('nav.php');
                             <table class="table">
                                 <tr>
                                     <td><label class="form-label">Name:</label></td>
-                                    <td><input class="form-control" id="name" type="text" name="user_name" placeholder="FristName MiddlelName LastName"></td>
+                                    <td><input class="form-control" id="name" type="text" name="user_name" placeholder="FristName and LastName" autofocus></td>
                                 </tr>
                                 <tr>
                                     <td><label>Password:</label></td>
-                                    <td><input class="form-control" id="pass" type="password" name="user_password1" placeholder="Must be at least 4 characters in uppercase, lowercase, number, symbol">
+                                    <td><input class="form-control" id="pass" type="password" name="user_password1" placeholder="Must be at least 8 characters in uppercase, lowercase, number, symbol">
                                     </td>
                                 </tr>
                                 <tr>
@@ -43,7 +43,7 @@ require_once('nav.php');
                                 <tr>
                                     <td><label>Country:</label></td>
                                     <td><select name="user_country" id="country">
-                                            <option>Choose your country</option>
+                                            <option disabled selected>Choose your country</option>
                                             <option value="Yemen">Yemen</option>
                                             <option value="China">China</option>
                                             <option value="KSA">KSA</option>
@@ -52,14 +52,14 @@ require_once('nav.php');
                                 <tr>
                                     <td><label>Permission:</label></td>
                                     <td><select name="user_per" id="per">
-                                            <option>Choose the Permation</option>
-                                            <option value="Admin">Admin</option>
-                                            <option value="User">User</option>
+                                            <option disabled selected>Choose the Permation</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">User</option>
                                         </select></td>
                                 </tr>
                                 <tr>
-                                    <td>Uplode Image:</td>
-                                    <td><label id="format"><input class="form-control" type="file" name="user_uplode">
+                                    <td>upload Image:</td>
+                                    <td><label id="format"><input class="form-control" type="file" name="user_upload">
                                             The allowed formats here are (jpg,png,svg,jpeg)</label></td>
                                 </tr>
                                 <tr>
@@ -71,41 +71,42 @@ require_once('nav.php');
                                 </tr>
                             </table>
                         </div>
+                        <script src="./js/dashboard.js"></script>
                     </form>
                     <?php
-        if(isset($_POST['added'])){
-            require_once('../config.php');
-            $name = $_POST['user_name'];
-            $password = md5($_POST['user_password2']);
-            $email = $_POST['user_email'];
-            $phone = $_POST['user_tel'];
-            $gender = $_POST['user_gender'];
-            $country = $_POST['user_country'];
-            $type = $_POST['user_per'];
-            if(isset($_FILES['user_uplode']) && empty($_FILES['user_uplode']['tmp_name'])) {
-                $sql = "insert into user(user_name,user_password,user_email,phone,user_gender,user_country,user_type)
-                values('$name','$password','$email','$phone','$gender','$country','$type')";
-                $exe = mysqli_query($conn,$sql);
-                if(!$exe){
-                    echo "Insert Error" . mysqli_error($conn);
-                }
-                mysqli_close($conn);
-            }
-            else {
-                $folder ="../Uplode/";
-                $img = $_FILES['user_uplode']['name'];
-                $tmp = $_FILES['user_uplode']['tmp_name'];
-                $sql = "insert into user(user_name,user_password,user_email,phone,user_gender,user_country,user_img,user_type)
-                values('$name','$password','$email','$phone','$gender','$country','$img','$type')";
-                $exe = mysqli_query($conn,$sql);
-                if(!$exe){
-                    echo "Insert Error" . mysqli_error($conn);
-                }
-                move_uploaded_file($tmp,$folder.$img);
-                }
-            mysqli_close($conn);
-        }
-        ?>
+                    if (isset($_POST['added'])) {
+                        require_once('../config.php');
+                        $name = $_POST['user_name'];
+                        $password = md5($_POST['user_password2']);
+                        $email = $_POST['user_email'];
+                        $phone = $_POST['user_tel'];
+                        $gender = $_POST['user_gender'];
+                        $country = $_POST['user_country'];
+                        $type = $_POST['user_per'];
+                        $e_pass = '';
+                        if (isset($_FILES['user_upload']) && empty($_FILES['user_upload']['tmp_name'])) {
+                            $sql = "INSERT INTO user(user_name, user_password, user_email, user_phone, user_gender, user_country, user_type)
+                                    VALUES('$name','$password','$email','$phone','$gender','$country','$type')";
+                            $exe = mysqli_query($conn, $sql);
+                            if (!$exe) {
+                                echo "Insert Error" . mysqli_error($conn);
+                            }
+                            mysqli_close($conn);
+                        } else {
+                            $folder = "../upload/";
+                            $img = $_FILES['user_upload']['name'];
+                            $tmp = $_FILES['user_upload']['tmp_name'];
+                            $sql = "INSERT INTO user(user_name, user_password, user_email, user_phone, user_gender, user_country, user_img, user_type)
+                                    VALUES('$name','$password','$email','$phone','$gender','$country','$img','$type')";
+                            $exe = mysqli_query($conn, $sql);
+                            if (!$exe) {
+                                echo "Insert Error" . mysqli_error($conn);
+                            }
+                            move_uploaded_file($tmp, $folder . $img);
+                        }
+                        mysqli_close($conn);
+                    }
+                    ?>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 <?php session_start();
+$_SESSION['session_time'] = 60;
 ob_start("ob_gzhandler"); ?>
 
 <!DOCTYPE html>
@@ -25,8 +26,8 @@ ob_start("ob_gzhandler"); ?>
     $OK = true;
     if (isset($_POST['login'])) {
         if (isset($_POST['user_email']) && isset($_POST['user_pass'])) {
-            $email = $_POST['user_email'];
-            $pass = $_POST['user_pass'];
+            $email = htmlspecialchars($_POST['user_email'], ENT_QUOTES, "utf-8");
+            $pass = htmlspecialchars($_POST['user_pass'], ENT_QUOTES, "utf-8");
         }
         if (empty($email)) {
             $E_email = "يرجى إدخال البريد الإلكتروني";
@@ -38,23 +39,22 @@ ob_start("ob_gzhandler"); ?>
         }
         if ($OK) {
             require_once('./config.php');
-            $pass = $_POST['user_pass']; // md5($_POST['adminPass'])
-            $per = '';
+            $pass = md5($_POST['user_pass']);
             $sql = "SELECT * FROM user WHERE user_email = '$email' AND user_password = '$pass'";
             $exe = mysqli_query($conn, $sql);
-            $found = false;
+            // $found = false;
             while ($row = mysqli_fetch_assoc($exe)) {
-                if ($email == $row['user_email'] && $pass == $row['user_password']) {
-                    $_SESSION['user_id'] = $row['user_id'];
-                    $_SESSION['user_name'] = $row['user_name'];
-                    $_POST['user_name'] = $row['user_name'];
-                    $_POST['user_type'] = $row['user_type'];
-                    $found = true;
-                    header('location:./index.php');
-                }
+                // if ($email == $row['user_email'] && $pass == $row['user_password']) {
+                $_SESSION['userId'] = $row['user_id'];
+                $_SESSION['userName'] = $row['user_name'];
+                $_SESSION['userType'] = $row['user_type'];
+                // $_POST['user_name'] = $row['user_name'];
+                // $found = true;
+                header('location:./index.php');
+                // }
             }
-            if (!$found) {
-                $er = 'خطأ في البريد اللإلكتروني أو كلمة المرور';
+            if (mysqli_num_rows($exe) == 0) {
+                $er = 'خطأ في البريد الإلكتروني أو كلمة المرور';
             }
         }
     }
@@ -69,12 +69,12 @@ ob_start("ob_gzhandler"); ?>
                 <div class="modal-body p-5 pt-0">
                     <form class="" method="post">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control rounded-3" id="floatingInput" name="user_email" placeholder="name@example.com">
+                            <input type="email" class="form-control rounded-3" id="floatingInput" name="user_email" placeholder="name@example.com" autofocus required>
                             <label for="floatingInput">عنوان البريد الإلكتروني</label>
                             <p style="color:red;"><?php echo $E_email; ?></p>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control rounded-3" id="floatingPassword" name="user_pass" placeholder="Password">
+                            <input type="password" class="form-control rounded-3" id="floatingPassword" name="user_pass" placeholder="Password" required>
                             <label for="floatingPassword">كلمة المرور</label>
                             <p style="color:red;"><?php echo $E_password; ?></p>
                         </div>
@@ -91,26 +91,27 @@ ob_start("ob_gzhandler"); ?>
 
 </html>
 <?php
-//if (isset($_POST['login'])) { // if form is submitted
-//    // $email = $_POST['user_email'];
-//    // $pass = $_POST['user_pass'];
-//    $per = '';
-//    $sql = "SELECT * FROM user WHERE user_email = '$email' AND user_password = '$pass'";
-//    $exe = mysqli_query($conn, $sql);
-//    // $found = false;
-//    while ($row = mysqli_fetch_assoc($exe)) {
-//        if ($email == $row['user_email'] && $pass == $row['user_password']) {
-//            $_SESSION['adminId'] = $row['user_id'];
-//            $_SESSION['adminName'] = $row['user_name'];
-//            $_SESSION['user_type'] = $row['user_type'];
-//            // $found = true;
-//            header('location:./index.php');
-//        } else {
-//            echo "Incorrect Email or Password";
-//        }
-//    }
-//}
-//
+// if (isset($_POST['login'])) { // if form is submitted
+//     // $email = $_POST['user_email'];
+//     // $pass = $_POST['user_pass'];
+//     $per = '';
+//     $sql = "SELECT * FROM user WHERE user_email = '$email' AND user_password = '$pass'";
+//     $exe = mysqli_query($conn, $sql);
+//     // $found = false;
+//     while ($row = mysqli_fetch_assoc($exe)) {
+//         if ($email == $row['user_email'] && $pass == $row['user_password']) {
+//             $_SESSION['adminId'] = $row['user_id'];
+//             $_SESSION['adminName'] = $row['user_name'];
+//             $_SESSION['user_type'] = $row['user_type'];
+//             // $found = true;
+
+//             header('location:./index.php');
+//         } else {
+//             echo "Incorrect Email or Password";
+//         }
+//     }
+// }
+
 ?>
 <?php
 ob_end_flush();

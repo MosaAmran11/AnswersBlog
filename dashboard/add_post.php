@@ -15,7 +15,7 @@ require_once('nav.php');
                             <table class="table">
                                 <tr>
                                     <td><label class="form-label">Post Title:</label></td>
-                                    <td><input class="form-control" id="title" type="text" name="post_title"></td>
+                                    <td><input class="form-control" id="title" type="text" name="post_title" autofocus></td>
                                 </tr>
                                 <tr>
                                     <td><label>Post Date:</label></td>
@@ -48,8 +48,8 @@ require_once('nav.php');
                                         </select></td>
                                 </tr>
                                 <tr>
-                                    <td>Uplode Post Image:</td>
-                                    <td><label id="format"><input class="form-control" type="file" name="post_uplode">
+                                    <td>upload Post Image:</td>
+                                    <td><label id="format"><input class="form-control" type="file" name="post_upload">
                                         The allowed formats here are (jpg,png,svg)</label></td>
                                 </tr>
                                 <tr>
@@ -70,9 +70,9 @@ require_once('nav.php');
                         $text = $_POST['post_text'];
                         $textr = str_replace("'", "''", "$text");
                         $type = $_POST['post_type'];
-                        $folder = "./post_uplode/";
-                        $img = $_FILES['post_uplode']['name'];
-                        $tmp = $_FILES['post_uplode']['tmp_name'];
+                        $folder = "./post_upload/";
+                        $img = $_FILES['post_upload']['name'];
+                        $tmp = $_FILES['post_upload']['tmp_name'];
                         $sql = "INSERT INTO posts (post_title, post_date, post_text,post_type,post_img)
                             VALUES ('$title', '$date', '$textr', '$type', '$img')";
                         $exe = mysqli_query($conn, $sql);

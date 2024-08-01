@@ -5,7 +5,7 @@ require_once('nav.php');
 
 <!-- main  -->
 <div class="row">
-    <div class="containar">
+    <div class="container">
         <div style="margin-top: 20px; margin-bottom: 20px" class="row">
             <section class="col-md-4">
                 <div class="row">

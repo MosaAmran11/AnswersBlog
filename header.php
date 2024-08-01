@@ -19,7 +19,7 @@
 
 <body>
     <!-- header -->
-    <div class="containar">
+    <div class="container">
         <header id="header" class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-1">
             <div class="fs-4">
                 <a href="index.php">

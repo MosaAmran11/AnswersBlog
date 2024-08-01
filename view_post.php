@@ -6,7 +6,7 @@ require_once('config.php')
 
 <!-- main  -->
 <div class="row">
-    <div class="containar">
+    <div class="container">
         <div style="margin-top: 20px; margin-bottom: 20px" class="row">
             <section class="col-md-4">
                 <div class="row">
@@ -29,7 +29,7 @@ require_once('config.php')
                 </div>
             </section>
             <main class="col-8">
-                <!-- Retreving data from database -->
+                <!-- Retrieving data from database -->
                 <?php
                 require_once('config.php');
                 $post_id = htmlspecialchars($_GET['post_id'], ENT_QUOTES, 'utf-8');
